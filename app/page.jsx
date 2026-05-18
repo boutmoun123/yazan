@@ -5,6 +5,11 @@ import InfoRows from "@/components/InfoRows";
 import Reveal from "@/components/Reveal";
 import { withBasePath } from "@/lib/basePath";
 
+const contactEmail = "hamarnehyazan@gmail.com";
+const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+  contactEmail
+)}`;
+
 const exhibitions = [
   {
     title: "Fundaci\u00F3 Vila Casas, Can Framis, Barcelona",
@@ -50,9 +55,15 @@ export default function HomePage() {
       >
         <div className="page-shell flex min-h-[62vh] items-center justify-center pb-[6vh] pt-[6vh]">
           <Reveal className="w-full">
-            <h2 className="text-center font-sans text-[clamp(9.8rem,16vw,21rem)] font-semibold uppercase leading-[0.88] tracking-[-0.07em] text-[var(--foreground)]">
-              Let&apos;s Talk
-            </h2>
+            <a
+              href={gmailComposeUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Contact ${contactEmail} on Gmail`}
+              className="block text-center font-sans text-[clamp(9.8rem,16vw,21rem)] font-semibold uppercase leading-[0.88] tracking-[-0.06em] text-[var(--foreground)] transition-opacity duration-300 hover:opacity-65"
+            >
+              Let &apos;s Talk
+            </a>
           </Reveal>
         </div>
       </section>

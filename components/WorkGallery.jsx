@@ -377,6 +377,7 @@ function GalleryImage({
   image,
   aspect,
   onOpen,
+  priority = false,
   sizes = "(min-width: 1280px) 70vw, (min-width: 768px) 82vw, 100vw"
 }) {
   return (
@@ -393,6 +394,7 @@ function GalleryImage({
             alt={image.alt}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-[1.015]"
+            priority={priority}
             sizes={sizes}
           />
         </div>
@@ -401,19 +403,24 @@ function GalleryImage({
   );
 }
 
-function FullWidthBlock({ image, aspect, onOpen }) {
+function FullWidthBlock({ image, aspect, onOpen, priority = false }) {
   if (!image) {
     return null;
   }
 
   return (
     <div className="mx-auto max-w-[1080px]">
-      <GalleryImage image={image} aspect={aspect} onOpen={onOpen} />
+      <GalleryImage
+        image={image}
+        aspect={aspect}
+        onOpen={onOpen}
+        priority={priority}
+      />
     </div>
   );
 }
 
-function TrioBlock({ images, aspects, onOpen }) {
+function TrioBlock({ images, aspects, onOpen, priorityCount = 0 }) {
   if (!images.length) {
     return null;
   }
@@ -426,6 +433,7 @@ function TrioBlock({ images, aspects, onOpen }) {
           image={image}
           aspect={aspects[index] ?? "aspect-[4/5]"}
           onOpen={onOpen}
+          priority={index < priorityCount}
           sizes="(min-width: 1280px) 22vw, (min-width: 768px) 28vw, (min-width: 520px) 44vw, 100vw"
         />
       ))}
@@ -467,7 +475,8 @@ function EditorialSection({
   titleClassName,
   blocks,
   remainingImages,
-  onOpen
+  onOpen,
+  eagerLoadLeadImage = false
 }) {
   return (
     <section className="space-y-8 sm:space-y-10 lg:space-y-14">
@@ -477,6 +486,8 @@ function EditorialSection({
 
       <div className="space-y-4 sm:space-y-6 lg:space-y-9">
         {blocks.map((block, index) => {
+          const shouldPrioritizeBlock = eagerLoadLeadImage && index === 0;
+
           if (block.type === "full") {
             return (
               <FullWidthBlock
@@ -484,6 +495,7 @@ function EditorialSection({
                 image={block.images[0]}
                 aspect={block.aspect}
                 onOpen={onOpen}
+                priority={shouldPrioritizeBlock}
               />
             );
           }
@@ -494,6 +506,7 @@ function EditorialSection({
               images={block.images}
               aspects={block.aspects}
               onOpen={onOpen}
+              priorityCount={shouldPrioritizeBlock ? 1 : 0}
             />
           );
         })}
@@ -535,6 +548,7 @@ export default function WorkGallery({ images }) {
               blocks={section.blocks}
               remainingImages={index === sections.length - 1 ? leftoverImages : []}
               onOpen={setActiveImage}
+              eagerLoadLeadImage={index === 0}
             />
           ))}
         </div>

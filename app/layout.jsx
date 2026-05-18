@@ -1,5 +1,4 @@
 import { Inter } from "next/font/google";
-import ThemeToggle from "@/components/ThemeToggle";
 import { withBasePath } from "@/lib/basePath";
 import "./globals.css";
 
@@ -22,26 +21,10 @@ export const metadata = {
     "Editorial portfolio rebuild inspired by Yazan Hamarneh's original photography landing page."
 };
 
-const themeScript = `
-(() => {
-  try {
-    const storedTheme = window.localStorage.getItem("theme");
-    const theme = storedTheme === "dark" ? "dark" : "light";
-    document.documentElement.dataset.theme = theme;
-    document.documentElement.style.colorScheme = theme;
-  } catch (error) {
-    document.documentElement.dataset.theme = "light";
-    document.documentElement.style.colorScheme = "light";
-  }
-})();
-`;
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth">
       <body className={inter.variable}>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <ThemeToggle />
         {children}
       </body>
     </html>
