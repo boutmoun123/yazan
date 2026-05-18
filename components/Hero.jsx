@@ -102,6 +102,22 @@ function MobileHeroBody() {
             Hamarneh
           </span>
         </div>
+
+        <div className="mt-8 flex justify-center sm:mt-10">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 18, ease: "linear", repeat: Infinity }}
+          >
+            <Image
+              src={logoPath}
+              alt="Yazan Hamarneh mark"
+              width={160}
+              height={160}
+              className="theme-logo h-28 w-28 object-contain sm:h-32 sm:w-32"
+              priority
+            />
+          </motion.div>
+        </div>
       </div>
     </div>
   );
