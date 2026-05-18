@@ -28,12 +28,12 @@ const gallerySections = [
       {
         type: "trio",
         numbers: [9, 10, 11],
-        aspects: ["aspect-[4/5]", "aspect-[4/5]", "aspect-[4/5]"]
+        aspects: ["aspect-[4/6]", "aspect-[4/6]", "aspect-[4/6]"]
       },
       {
         type: "trio",
         numbers: [12, 13, 14],
-        aspects: ["aspect-[4/5]", "aspect-[4/5]", "aspect-[4/5]"]
+        aspects: ["aspect-[4/6]", "aspect-[4/6]", "aspect-[4/6]"]
       },
       { type: "full", numbers: [15], aspect: "aspect-[16/10] sm:aspect-[16/9.2]" },
       {
