@@ -23,7 +23,7 @@ const exhibitions = [
 
 const studies = [
   {
-    title: "MA. in Photography and Design, ELISAVA, Barcelona",
+    title: "MA in Photography and Design, ELISAVA, Barcelona",
     date: "2025 \u2014 2026"
   },
   {
