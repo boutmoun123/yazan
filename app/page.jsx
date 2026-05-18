@@ -21,7 +21,7 @@ const exhibitions = [
 
 const studies = [
   {
-    title: "MA. in Photography and Design, ELISAVA, Barcelona.",
+    title: "MA in Photography and Design, ELISAVA, Barcelona.",
     date: "2025 \u2014 2026"
   },
   {
@@ -31,8 +31,8 @@ const studies = [
 ];
 
 const aboutText = [
-  "The story started with a sunset and a phone camera, and something clicked that day \u2014 not just the shutter.",
-  "Yazan works between street photography, documentary, storytelling and events, his images are driven by curiosity and observation, capturing quiet moments that feel raw, personal, and cinematic, but whatever the context, the question is always the same: what does this moment actually feel like?",
+  "The story started with a sunset and a phone camera and something clicked that day \u2014 not just the shutter.",
+  "Yazan works between street photography, documentary, storytelling and events, his images are driven by curiosity and observation, capturing quiet moments that feel raw, personal and cinematic, but whatever the context, the question is always the same: what does this moment actually feel like?",
   "He also works with design and personal publishing projects.",
   "Yazan is based in Barcelona and open to work across Europe and beyond."
 ].join("\n\n");

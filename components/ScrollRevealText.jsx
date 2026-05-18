@@ -25,7 +25,12 @@ function RevealCharacter({ char, index, total, progress }) {
 
 export default function ScrollRevealText({ text, className = "" }) {
   const ref = useRef(null);
-  const characters = useMemo(() => Array.from(text), [text]);
+  const normalizedText = useMemo(() => text.replace(/\r\n/g, "\n"), [text]);
+  const tokens = useMemo(
+    () => normalizedText.split(/(\n|[^\S\n]+)/).filter(Boolean),
+    [normalizedText]
+  );
+  const characters = useMemo(() => Array.from(normalizedText), [normalizedText]);
   const revealableCharacters = useMemo(
     () => characters.filter((char) => !/\s/.test(char)),
     [characters]
@@ -39,21 +44,31 @@ export default function ScrollRevealText({ text, className = "" }) {
 
   return (
     <p ref={ref} className={`text-[var(--reveal-base)] ${className}`}>
-      {characters.map((char, index) => {
-        if (/\s/.test(char)) {
-          return <span key={`space-${index}`}>{char}</span>;
+      {tokens.map((token, tokenIndex) => {
+        if (token === "\n") {
+          return <br key={`line-break-${tokenIndex}`} />;
         }
 
-        revealIndex += 1;
+        if (/^[^\S\n]+$/.test(token)) {
+          return <span key={`space-${tokenIndex}`}>{token}</span>;
+        }
 
         return (
-          <RevealCharacter
-            key={`char-${index}`}
-            char={char}
-            index={revealIndex}
-            total={revealableCharacters.length}
-            progress={scrollYProgress}
-          />
+          <span key={`word-${tokenIndex}`} className="inline-block align-baseline">
+            {Array.from(token).map((char, charIndex) => {
+              revealIndex += 1;
+
+              return (
+                <RevealCharacter
+                  key={`char-${tokenIndex}-${charIndex}`}
+                  char={char}
+                  index={revealIndex}
+                  total={revealableCharacters.length}
+                  progress={scrollYProgress}
+                />
+              );
+            })}
+          </span>
         );
       })}
     </p>
