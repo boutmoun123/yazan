@@ -17,7 +17,7 @@ export default function About({ text, imageSrc }) {
           <div className="max-w-[42rem] lg:max-w-none">
             <ScrollRevealText
               text={text}
-              className="text-left text-[0.98rem] leading-[1.68] tracking-[0.055em] sm:text-center sm:text-[1.08rem] sm:leading-[1.74] sm:tracking-[0.08em] lg:text-left lg:text-[1.22rem] lg:leading-[1.72] lg:tracking-[0.095em] xl:text-[1.38rem] xl:tracking-[0.11em]"
+              className="whitespace-pre-line text-left text-[0.98rem] leading-[1.68] tracking-[0.055em] sm:text-center sm:text-[1.08rem] sm:leading-[1.74] sm:tracking-[0.08em] lg:text-left lg:text-[1.22rem] lg:leading-[1.72] lg:tracking-[0.095em] xl:text-[1.38rem] xl:tracking-[0.11em]"
             />
           </div>
         </div>

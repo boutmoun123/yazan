@@ -39,7 +39,7 @@ const gallerySections = [
       {
         type: "trio",
         numbers: [16, 17, 18],
-        aspects: ["aspect-[4/5]", "aspect-[4/5]", "aspect-[4/5]"]
+        aspects: ["aspect-[4/6]", "aspect-[4/6]", "aspect-[4/6]"]
       }
     ]
   },
@@ -53,16 +53,20 @@ const gallerySections = [
       {
         type: "trio",
         numbers: [20, 21, 22],
-        aspects: ["aspect-[4/5]", "aspect-[4/5]", "aspect-[4/5]"]
+        aspects: ["aspect-[4/6]", "aspect-[4/6]", "aspect-[4/6]"]
       },
       {
         type: "trio",
         numbers: [23, 24, 25],
-        aspects: ["aspect-[4/5]", "aspect-[4/5]", "aspect-[4/5]"]
+        aspects: ["aspect-[4/6]", "aspect-[4/6]", "aspect-[4/6]"]
       },
       { type: "full", numbers: [26], aspect: "aspect-[16/10] sm:aspect-[16/9.6]" },
       { type: "full", numbers: [27], aspect: "aspect-[16/10] sm:aspect-[16/9.6]" },
-      { type: "full", numbers: [28], aspect: "aspect-[16/10] sm:aspect-[16/9.6]" }
+      {
+        type: "trio",
+        numbers: [28, 29, 30],
+        aspects: ["aspect-[4/6]", "aspect-[4/6]", "aspect-[4/6]"]
+      }
     ]
   }
 ];
