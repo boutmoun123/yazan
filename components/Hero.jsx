@@ -137,7 +137,7 @@ function DesktopHeroBody({ viewportRef, trackRef, springX, handleMove }) {
         className="flex items-center gap-[clamp(5rem,10vw,12rem)] whitespace-nowrap pb-[12vh] pt-[18vh] will-change-transform"
       >
         <span className="font-display text-[clamp(6.5rem,18vw,18rem)] font-semibold uppercase leading-[0.84] tracking-[-0.07em] text-[var(--foreground)]">
-          Ya z a n
+          Yazan
         </span>
         <span className="font-display text-[clamp(6.5rem,18vw,18rem)] font-semibold uppercase leading-[0.84] tracking-[-0.07em] text-[var(--foreground)]">
           Hamarneh
