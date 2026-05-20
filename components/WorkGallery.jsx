@@ -294,8 +294,8 @@ function Lightbox({ image, onClose }) {
 
 function MobileWorkHeader() {
   return (
-    <header className="mx-auto flex max-w-[1080px] flex-col gap-5 xl:hidden">
-      <div className="flex items-start justify-between gap-4 pr-16 min-[520px]:pr-0">
+    <header className="mx-auto flex max-w-[1080px] items-start justify-between gap-4 lg:hidden">
+      <div className="flex items-start gap-6">
         <Link href="/" className="block">
           <Image
             src={logoPath}
@@ -307,40 +307,40 @@ function MobileWorkHeader() {
           />
         </Link>
 
-        <a
-          href="https://www.instagram.com/el.fotografo__/"
-          target="_blank"
-          rel="noreferrer"
-          className="text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-[var(--foreground-soft)] sm:text-[0.78rem]"
+        <nav
+          aria-label="Work navigation"
+          className="pt-3 text-[0.76rem] font-semibold uppercase tracking-[-0.03em] text-[var(--foreground)] sm:text-[0.84rem]"
         >
-          Instagram
-        </a>
+          <ul className="flex flex-wrap items-center gap-x-7 gap-y-2 sm:gap-x-10">
+            <li>
+              <NavHoverLink href="/" label="Home" />
+            </li>
+            <li>
+              <NavHoverLink href="/#about" label="About" />
+            </li>
+            <li>
+              <NavHoverLink href="/work" label="Work" />
+            </li>
+          </ul>
+        </nav>
       </div>
 
-      <nav
-        aria-label="Work navigation"
-        className="self-center text-[0.76rem] font-semibold uppercase tracking-[-0.03em] text-[var(--foreground)] sm:text-[0.84rem]"
+      <a
+        href="https://www.instagram.com/el.fotografo__/"
+        target="_blank"
+        rel="noreferrer"
+        className="pt-3 text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-[var(--foreground-soft)] sm:text-[0.78rem]"
       >
-        <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 sm:gap-x-10">
-          <li>
-            <NavHoverLink href="/" label="Home" />
-          </li>
-          <li>
-            <NavHoverLink href="/#about" label="About" />
-          </li>
-          <li>
-            <NavHoverLink href="/work" label="Work" />
-          </li>
-        </ul>
-      </nav>
+        Instagram
+      </a>
     </header>
   );
 }
 
 function DesktopWorkHeader() {
   return (
-    <header className="mx-auto hidden max-w-[1080px] grid-cols-[auto_1fr_auto] items-center gap-4 text-[0.78rem] font-semibold uppercase tracking-[-0.03em] text-[var(--foreground)] xl:grid">
-      <Link href="/" className="block">
+    <header className="mx-auto hidden max-w-[1080px] grid-cols-[auto_1fr_auto] items-center gap-8 text-[0.78rem] font-semibold uppercase tracking-[-0.03em] text-[var(--foreground)] lg:grid">
+      <Link href="/" className="block justify-self-start">
         <Image
           src={logoPath}
           alt="Yazan Hamarneh mark"
@@ -351,7 +351,10 @@ function DesktopWorkHeader() {
         />
       </Link>
 
-      <nav aria-label="Work navigation" className="justify-self-center text-[0.88rem]">
+      <nav
+        aria-label="Work navigation"
+        className="justify-self-center text-[0.88rem]"
+      >
         <ul className="flex items-center gap-10">
           <li>
             <NavHoverLink href="/" label="Home" />

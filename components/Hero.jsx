@@ -17,8 +17,8 @@ const logoPath = withBasePath("/images/logo.png");
 
 function MobileHeroHeader() {
   return (
-    <div className="flex flex-col gap-4 xl:hidden">
-      <div className="flex items-start gap-4">
+    <div className="flex items-start gap-6 xl:hidden">
+      <div className="shrink-0">
         <Link href="/" className="block pt-1">
           <motion.div
             animate={{ rotate: 360 }}
@@ -38,9 +38,9 @@ function MobileHeroHeader() {
 
       <nav
         aria-label="Primary navigation"
-        className="text-[0.72rem] font-semibold uppercase tracking-[-0.03em] text-[var(--foreground)] sm:text-[0.8rem]"
+        className="flex-1 pt-3 text-[0.72rem] font-semibold uppercase tracking-[-0.03em] text-[var(--foreground)] sm:text-[0.8rem]"
       >
-        <ul className="flex flex-wrap items-center gap-x-7 gap-y-2.5 sm:justify-center sm:gap-x-10">
+        <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 sm:gap-x-8">
           {navigation.map((item) => (
             <li key={item.label}>
               <NavHoverLink href={item.href} label={item.label} />

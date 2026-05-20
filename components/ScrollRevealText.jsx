@@ -1,12 +1,14 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
+const REVEAL_COMPLETION_PROGRESS = 0.62;
+
 function RevealCharacter({ char, index, total, progress }) {
-  const step = 1 / Math.max(total, 1);
+  const step = REVEAL_COMPLETION_PROGRESS / Math.max(total, 1);
   const start = index * step;
-  const end = Math.min(start + step * 1.08, 1);
+  const end = Math.min(start + step * 1.08, REVEAL_COMPLETION_PROGRESS);
   const opacity = useTransform(progress, [start, end], [0, 1]);
 
   return (
@@ -25,6 +27,7 @@ function RevealCharacter({ char, index, total, progress }) {
 
 export default function ScrollRevealText({ text, className = "" }) {
   const ref = useRef(null);
+  const [isRevealLocked, setIsRevealLocked] = useState(false);
   const normalizedText = useMemo(() => text.replace(/\r\n/g, "\n"), [text]);
   const tokens = useMemo(
     () => normalizedText.split(/(\n|[^\S\n]+)/).filter(Boolean),
@@ -39,6 +42,24 @@ export default function ScrollRevealText({ text, className = "" }) {
     target: ref,
     offset: ["start 0.96", "end 0.42"]
   });
+
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (value) => {
+      if (value >= REVEAL_COMPLETION_PROGRESS) {
+        setIsRevealLocked(true);
+      }
+    });
+
+    return unsubscribe;
+  }, [scrollYProgress]);
+
+  if (isRevealLocked) {
+    return (
+      <p ref={ref} className={`whitespace-pre-line text-[var(--foreground)] ${className}`}>
+        {normalizedText}
+      </p>
+    );
+  }
 
   let revealIndex = -1;
 

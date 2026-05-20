@@ -60,9 +60,10 @@ export default function HomePage() {
             <a
               href={contactEmailHref}
               aria-label={`Email ${contactEmail}`}
-              className="block text-center font-sans text-[clamp(9.8rem,16vw,21rem)] font-semibold uppercase leading-[0.88] tracking-[-0.06em] text-[var(--foreground)] transition-opacity duration-300 hover:opacity-65"
+              className="block text-center font-sans text-[clamp(5rem,22vw,21rem)] font-semibold uppercase leading-[0.88] tracking-[-0.06em] text-[var(--foreground)] transition-opacity duration-300 hover:opacity-65"
             >
-              Let &apos;s Talk
+              <span className="block">Let &apos;s</span>
+              <span className="block">Talk</span>
             </a>
           </Reveal>
         </div>
